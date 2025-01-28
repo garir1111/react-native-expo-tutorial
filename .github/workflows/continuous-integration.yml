@@ -11,8 +11,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup npm
-        uses: npm/action-setup@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
           version: 8.6.0
 
@@ -20,11 +20,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.0.0
-          cache: "npm"
+          cache: "pnpm"
 
       - name: Install dependencies
         shell: bash
-        run: npm install
+        run: pnpm install
 
       - name: Typecheck
-        run: npm run typecheck
+        run: pnpm run typecheck
